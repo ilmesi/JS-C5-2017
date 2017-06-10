@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './TodoList';
+import CreateForm from './CreateForm';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -47,17 +48,11 @@ export default class Home extends React.Component {
       <div className="container">
         <div className="header">
           <h2>TODO List</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div className="row">
-              <div className="ten columns">
-                <label htmlFor="new-todo">Ingrese una tarea</label>
-                <input type="text" id="new-todo" placeholder="Hacer compra del mercado" className="u-full-width" value={this.state.text} onChange={this.handleChange} />
-              </div>
-              <div className="two columns">
-                <button className="button-primary" type="submit" value="submit">Crear</button>
-              </div>
-            </div>
-          </form>
+          <CreateForm
+            submit={this.handleSubmit}
+            text={this.state.text}
+            updateText={this.handleChange}
+          />
           <TodoList items={this.state.items} />
         </div>
       </div>
