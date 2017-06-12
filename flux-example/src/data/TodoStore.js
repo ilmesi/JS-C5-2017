@@ -16,7 +16,7 @@ class TodoStore extends ReduceStore {
     switch (action.type) {
       case TodoActionTypes.ADD_TODO:
         const id = state.length + 1;
-        state.push(new Todo(id, action.text));
+        state.push(new Todo(id, action.text)); // ?
         return state;
 
       case TodoActionTypes.COMPLETE_TODO:
